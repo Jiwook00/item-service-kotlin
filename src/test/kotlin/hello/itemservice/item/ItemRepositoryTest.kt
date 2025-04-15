@@ -32,15 +32,15 @@ class ItemRepositoryTest {
         val item1 = Item(itemName = "ItemA", price = 10000, quantity = 10)
         val item2 = Item(itemName = "ItemB", price = 20000, quantity = 30)
 
-        itemRepository.save(item1)
-        itemRepository.save(item2)
+        val savedItem1 = itemRepository.save(item1)
+        val savedItem2 = itemRepository.save(item2)
 
         // when
         val result = itemRepository.findAll()
 
         // then
         assertThat(result.size).isEqualTo(2)
-        assertThat(result).contains(item1, item2)
+        assertThat(result).contains(savedItem1, savedItem2)
     }
 
     @Test

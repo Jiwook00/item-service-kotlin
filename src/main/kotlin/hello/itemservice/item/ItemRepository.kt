@@ -23,9 +23,10 @@ class ItemRepository {
     }
 
     fun save(item: Item): Item {
-        item.id = ++sequence
-        store[item.id] = item
-        return item
+        val newId = ++sequence
+        val savedItem = item.copy(id = newId) // 새 ID로 복사본 생성
+        store[newId] = savedItem
+        return savedItem
     }
 
     fun findById(id: Long): Item? {
