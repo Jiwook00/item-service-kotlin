@@ -1,4 +1,4 @@
-package hello.itemservice.item
+package hello.itemservice.domain.item
 
 data class Item(
     val id: Long = 0,
